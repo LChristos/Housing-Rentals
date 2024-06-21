@@ -81,7 +81,7 @@ document.getElementById('login').addEventListener('submit', function(event) {//U
         data => {
             if (data.status === 'success') {
                 alert('Συνδεθήκατε επιτυχώς!');
-                window.location.href  = "feed.html";
+                window.location.href  = "../Feed/feed.php";
             } else {
                 alert(data.message);
             }

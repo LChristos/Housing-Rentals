@@ -13,14 +13,13 @@
 			$password = $_POST['password'];
 
 			try{
-				$sql = "SELECT username , password FROM users";
+				$sql = "SELECT id, username , password FROM users";
 
 				$stmt = $conn->prepare($sql);
 				$stmt->execute();
 
 				$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-				$userData = json_encode($result);
 				$status = false;
 				foreach ($result as $user) {
 					if ($username == "$user[username]" && $password == "$user[password]"){
@@ -30,6 +29,7 @@
 				}
 
 				if ($status){
+					setcookie("user_id", $user['id'], time() + (86400 * 30), "/");
 					echo json_encode(
 						["status" => "success",
 						"message" => "Successful Login."]
