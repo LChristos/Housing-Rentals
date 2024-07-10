@@ -17,7 +17,7 @@ session_start();
                     echo '<a href="../logout.php">Logout</a>';
                 } 
                 else {
-                    echo '<a href="../Login_Register/login.php">Login</a>';
+                    echo '<a href="../Login_Register/login.php">Login/Register</a>';
                 }
             ?>
         </ul>
