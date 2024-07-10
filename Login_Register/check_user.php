@@ -23,13 +23,14 @@
 				$status = false;
 				foreach ($result as $user) {
 					if ($username == "$user[username]" && $password == "$user[password]"){
+						$value = $user['id'];
 						$status = true;
 					}
 					
 				}
 
 				if ($status){
-					setcookie("user_id", $user['id'], time() + (86400 * 30), "/");
+					setcookie("user_id", $value , time() + (86400 * 30), "/");
 					echo json_encode(
 						["status" => "success",
 						"message" => "Successful Login."]
