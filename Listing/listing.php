@@ -17,7 +17,7 @@
         ?>
     </header>
     <main>
-        <form id="create-listing-form" method="post" action="new_listing.php">
+        <form id="create_listing_form" method="post" action="new_listing.php">
             <label for="photo">Φωτογραφία ακινήτου:</label>
             <input type="file" id="photo" name="photo" accept="image/*" required>
             <label for="title">Τίτλος:</label>

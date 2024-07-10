@@ -19,11 +19,11 @@ document.getElementById('register').addEventListener('submit', function(event) {
     let email = document.getElementById('email').value;
     let error_message = '';
 
-    if (!/^[a-zA-Z]+$/.test(firstname)) {
+    if (!/^[\p{L}\s]+$/u.test(firstname)) {
         error_message += 'Το όνομα πρέπει να περιέχει μόνο χαρακτήρες.\n';
     }
 
-    if (!/^[a-zA-Z]+$/.test(lastname)) {
+    if (!/^[\p{L}\s]+$/u.test(lastname)) {
         error_message += 'Το επώνυμο πρέπει να περιέχει μόνο χαρακτήρες.\n';
     }
 

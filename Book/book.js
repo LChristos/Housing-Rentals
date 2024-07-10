@@ -57,8 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let firstname = document.getElementById('name').value;
         let lastname = document.getElementById('surname').value;
         let listing_id = document.getElementById('listing_id').value;
-        let startDate = new Date(document.getElementById('start_date').value);
-        let endDate = new Date(document.getElementById('finish_date').value);
         let email = document.getElementById('email').value;
         let amount = document.getElementById('amount').innerText.trim();
         amount = amount.replace(/[^0-9.]/g, '');

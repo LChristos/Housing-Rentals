@@ -1,6 +1,26 @@
 <footer>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        footer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 15px;
+            text-align: center;
+        }
+        .contact-info, .map {
+            padding: 13px;
+        }
+        .map iframe {
+            width: 100%;
+            height: 100%;
+        }
+        @media (max-width: 1000px) {
+            footer {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
     <div class="contact-info" style="text-align: center;">
         <p>Contact us at: <a href="tel:+123456789">+123456789</a> | <a href="mailto:info@dsestate.com">info@dsestate.com</a></p>
     </div>

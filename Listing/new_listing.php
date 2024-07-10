@@ -11,8 +11,6 @@
             $targetDir = "../images/"; 
             $targetFile = $targetDir . basename($_FILES["photo"]["name"]); 
             move_uploaded_file($_FILES['photo']['tmp_name'], $targetFile);
-
-            //$check = getimagesize($_FILES["photo"]["tmp_name"]);
           
             $title = $_POST['title'];
             $region = $_POST['region'];

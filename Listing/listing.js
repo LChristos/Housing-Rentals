@@ -1,4 +1,4 @@
-document.getElementById('create-listing-form').addEventListener('submit', function(event) {
+document.getElementById('create_listing_form').addEventListener('submit', function(event) {
     event.preventDefault();
 
     let title = document.getElementById('title').value;
@@ -8,20 +8,20 @@ document.getElementById('create-listing-form').addEventListener('submit', functi
     let photo = document.getElementById('photo').files[0];
     let errorMessage = '';
 
-    if (!/^[a-zA-Z\s]+$/.test(title)) {
+    if (!/^[\p{L}\s]+$/u.test(title)) {
         errorMessage += 'Ο τίτλος πρέπει να περιέχει μόνο χαρακτήρες.\n';
     }
 
-    if (!/^[a-zA-Z\s]+$/.test(region)) {
+    if (!/^[\p{L}\s]+$/u.test(region)) {
         errorMessage += 'Η περιοχή πρέπει να περιέχει μόνο χαρακτήρες.\n';
     }
 
     if (!Number.isInteger(Number(room)) || Number(room) <= 0) {
-        errorMessage += 'Το πλήθος δωματίων πρέπει να είναι ακέραιος αριθμός.\n';
+        errorMessage += 'Το πλήθος δωματίων πρέπει να είναι ακέραιος θετικός αριθμός.\n';
     }
 
     if (!Number.isInteger(Number(price)) || Number(price) <= 0) {
-        errorMessage += 'Η τιμή ανά διανυκτέρευση πρέπει να είναι ακέραιος αριθμός.\n';
+        errorMessage += 'Η τιμή ανά διανυκτέρευση πρέπει να είναι ακέραιος θετικός αριθμός.\n';
     }
 
     if (errorMessage) {

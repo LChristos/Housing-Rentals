@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,25 @@
             if (!isset($_COOKIE['user_id'])) {
                 header("Location: ../Login_Register/login.php");
                 exit();
+            }
+
+            $user_id = $_COOKIE['user_id'];
+            try{
+                $conn = new PDO("mysql:host=localhost;dbname=ds_estate", "root", "");
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
+
+                $sql = "SELECT user_name, surname, email FROM users WHERE id=:user_id";
+
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                $stmt->execute();
+                $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+            }
+            catch(PDOException $e) {
+                echo json_encode([
+                    "status" => "error",
+                    "message" => "Connection failed: " . $e->getMessage()
+                ]);
             }
         ?>        
     </header>
@@ -48,11 +67,11 @@
 
             <div id="user_data" style="display:none;">
                 <label for="name">Όνομα:</label>
-                <input type="text" id="name" name="name" >
+                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user_data['user_name']); ?>">
                 <label for="surname">Επίθετο:</label>
-                <input type="text" id="surname" name="surname" >
+                <input type="text" id="surname" name="surname" value="<?php echo htmlspecialchars($user_data['surname']); ?>">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" >
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user_data['email']); ?>">
                 <div id="amount"></div>
 
                 <button type="submit" id="reserve">Καταχώρηση Κράτησης</button>

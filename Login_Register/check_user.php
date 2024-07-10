@@ -35,7 +35,7 @@
 						"message" => "Successful Login."]
 					);
 				}
-				else{//Difference between password and username error
+				else{
 					echo json_encode(
 						["status" => "failure",
 						"message" => "Λάθος όνομα χρήστη ή κωδικός πρόσβασης."]

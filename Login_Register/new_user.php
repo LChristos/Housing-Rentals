@@ -34,12 +34,11 @@
 				$stmt = null;
 			}
 			catch (PDOException $e){
-				if ($e->getCode() == 23000) {// difference between username and email
+				if ($e->getCode() == 23000) {
 					echo json_encode([
 						"status" => "error",
 						"message" => "Username or email already exists."]
 					);
-					//echo '<script type="text/javascript">alert("Error: ' .$e->getMessage()  . '");</script>';
 				} else {
 					return json_encode(
 						["status" => "error",

@@ -30,7 +30,7 @@
                         $dates[] = $user['start_date'] . " - " . $user['finish_date'];
                         
                     }
-                    $message = "The property is not available for the selected dates: " . implode(", ", $dates);
+                    $message = "Το σπίτι δεν είναι διαθέσιμο για τις επιλεγμένες ημερομηνίες:" . implode(", ", $dates);
 
                     echo json_encode([
                         "status" => "failure",
