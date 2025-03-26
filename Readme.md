@@ -1,4 +1,4 @@
-# DS Estate Web Application for Rental houses
+# Web Application for Rental houses
 
 This project is a project with the goal to develop a web application for short-term property rentals .
 ## Overview
